@@ -1,0 +1,14 @@
+import numpy as np
+from PIL import Image
+
+test = np.load('Quick Draw Files/bowtie.npy')
+
+testData = test[0]
+
+for i in range(len(testData)):
+    testData[i] = 255 - testData[i]
+
+reshaped = np.reshape(testData, (-1, 28))
+
+img = Image.fromarray(reshaped)
+img.show()
